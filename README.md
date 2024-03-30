@@ -1,5 +1,3 @@
-# Quilibrium-CeremonyClient-node-tutorial
-
 
 Quilibrium CeremonyClient node
 
@@ -9,7 +7,7 @@ Korzystałem z poradnika znajdującego się na tej stronie: https://demipoet.git
 
 Najpierw musimy mieć jakiś serwer VPS z odpowiednimi parametrami, szybkim łączem i bardzo dużą przepustowością. Takie są niby minimalne wymagania ale węzeł chodzi też na trochę słabszch maszynach: 
 
-"16GB of RAM, preferably 32 GB, 250GB of storage, preferably via SSD, 50MBps symmetric bandwidth, ie 50 download, 50 upload For Intel/AMD, the baseline processor is a Skylake processor @ 3.4GHz with 12 dedicated cores. For ARM, the M1 line of Apple is a good reference, but this has to be a dedicated machine."
+>"16GB of RAM, preferably 32 GB, 250GB of storage, preferably via SSD, 50MBps symmetric bandwidth, ie 50 download, 50 upload For Intel/AMD, the baseline processor is a Skylake processor @ 3.4GHz >with 12 dedicated cores. For ARM, the M1 line of Apple is a good reference, but this has to be a dedicated machine."
 
 Ja korzystam z Hostingera bo parę osób ma tam uruchomionego noda i działa. Serwer jaki powinniśmy kupić to KVM 8. Najlepiej opłaca się wziąć od razu na minimum 12 miesięcy. Przy kupnie przez refa jest rabat, płacimy z góry za 12 miesięcy i za to też jest zniżka. Wychodzi 1027zł.
 
@@ -70,9 +68,9 @@ Teraz jest trochę trudniej bo musimy edytować plik Go, użyjemy edytora Vim, t
 	
 Żeby wejść w tryb edycji wciskamy na klawiaturze "i". Na dole powinien pojawić się napis INSERT. Scrollem albo strzałkami przewijamy na sam dół pliku, strzałkami przesuwamy kursor w prawo, tak żeby być na samym końcu lini i klikamy ENTER żeby przenieść kursor do nowej lini. Tam wklejamy te 3 linijki
 
-  GOROOT=/usr/local/go
-  GOPATH=$HOME/go
-  PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+    GOROOT=/usr/local/go
+    GOPATH=$HOME/go
+    PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 Jak wkleimy to wciskamy ESC, żeby wyjść z trybu edycji. Potem SHIFT + : (obok L), wpisujemy "wq" i klikamy ENTER. Zapisaliśmy i wyszliśmy z naszego pliku do terminala
 
@@ -93,9 +91,9 @@ Teraz musimy przeprowadzić optymalizację ustawień sieciowych, edytujemy plik 
 	
 Wciskamy "i", przewijamy na sam koniec, tak żeby zacząć od nowej lini. Tak samo jak robiliśmy wyżej. Wklejamy te trzy linijki
 
-# Increase buffer sizes for better network performance
-net.core.rmem_max=600000000
-net.core.wmem_max=600000000
+    # Increase buffer sizes for better network performance
+    net.core.rmem_max=600000000
+    net.core.wmem_max=600000000
 
 Po wklejeniu ESC, SHIFT + : potem wq i ENTER żeby wyjść do konsoli
 
@@ -236,24 +234,24 @@ Teraz musimy stworzyć skrypt, który będzie odpowiadał za uruchamianie i obs�
 	
 Otworzy nam się pusty plik w edytorze VIM. Z wcześniejszych kroków już wiecie jak obsługiwać VIM więc nie będę pisał kolejny raz. Trzeba wkleić ten kod i zapisać
 
-[Unit]
-Description=Ceremony Client Go App Service
+    [Unit]
+    Description=Ceremony Client Go App Service
 
-[Service]
-CPUQuota=720%
-Type=simple
-Restart=always
-RestartSec=5s
-WorkingDirectory=/root/ceremonyclient/node
-Environment=GOEXPERIMENT=arenas
-ExecStart=/root/go/bin/node ./...
+    [Service]
+    CPUQuota=720%
+    Type=simple
+    Restart=always
+    RestartSec=5s
+    WorkingDirectory=/root/ceremonyclient/node
+    Environment=GOEXPERIMENT=arenas
+    ExecStart=/root/go/bin/node ./...
 
-[Install]
-WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
 
 
-[Install]
-WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
 
 W tym skrypcie jest ustawione maksymalne wykorzystanie rdzeni procesora na 90%. Ustawienie dotyczy 8 rdzeni. Jeżeli będziecie mieć serwer z większą ilością rdzeni to trzeba wpisać inną wartość w polu CPUQuota=. Liczy się to tak: 8 rdzeni * 90% = 720%, 12 rdzeni * 90% = 1080% itd.
 
@@ -271,14 +269,22 @@ Teraz jak przełączymy się na poprzednie okno to powinniśmy w logach zobaczy�
 
 Polecenie do obsługi noda:
 
-Start noda - 					service ceremonyclient start
-Zatrzymanie noda - 				service ceremonyclient stop
-Status noda (CTRL+C żeby wyjść) -		service ceremonyclient status
+Start noda
+    service ceremonyclient start
 
-Okno logów (CTRL+C żeby wyjść) - 		sudo journalctl -u ceremonyclient.service -f --no-hostname -o cat
+Zatrzymanie noda
+    service ceremonyclient stop
+Status noda (CTRL+C żeby wyjść)
+    service ceremonyclient status
 
-Sprawdzenie peer ID - 				cd ~/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -peer-id
-Sprawdzenie info o nodzie, salda itd - 		cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -node-info
+Okno logów (CTRL+C żeby wyjść)
+    sudo journalctl -u ceremonyclient.service -f --no-hostname -o cat
+
+Sprawdzenie peer ID
+    cd ~/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -peer-id
+Sprawdzenie info o nodzie, salda itd
+    cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -node-info
+
 
 
 
