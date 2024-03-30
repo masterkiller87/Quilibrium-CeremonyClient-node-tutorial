@@ -267,7 +267,7 @@ Teraz jak przełączymy się na poprzednie okno to powinniśmy w logach zobaczy�
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Polecenie do obsługi noda:
+Polecenia do obsługi noda:
 
 Start noda
 
