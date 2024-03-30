@@ -270,21 +270,20 @@ Teraz jak przełączymy się na poprzednie okno to powinniśmy w logach zobaczy�
 Polecenie do obsługi noda:
 
 Start noda
-    service ceremonyclient start
+	service ceremonyclient start
 
 Zatrzymanie noda
-    service ceremonyclient stop
+	service ceremonyclient stop
 Status noda (CTRL+C żeby wyjść)
-    service ceremonyclient status
+	service ceremonyclient status
 
 Okno logów (CTRL+C żeby wyjść)
-    sudo journalctl -u ceremonyclient.service -f --no-hostname -o cat
+	sudo journalctl -u ceremonyclient.service -f --no-hostname -o cat
 
 Sprawdzenie peer ID
-    cd ~/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -peer-id
+	cd ~/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -peer-id
 Sprawdzenie info o nodzie, salda itd
-    cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -node-info
-
+	cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -node-info
 
 
 
