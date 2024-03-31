@@ -42,7 +42,7 @@ Potem aktualizujemy nasze repozytorium
 	
 Instalujemy GITa
 
-	sudo apt install  git  -y
+	sudo apt install git -y
 
 Tym poleceniem sprawdzamy naszą wersję GIT, powinniśmy mieć "git version 2.34.1"
 
