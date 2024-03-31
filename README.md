@@ -22,7 +22,9 @@ Jak już mamy uruchomiony serwer to trzeba się do niego jakoś zalogować. Syst
 Łączymy się z naszym serwerem wirtualnym przez SSH. Praktycznie wszystko robimy za pomocą wiersza poleceń. Jeżeli czegoś nie wiecie jak zrobić albo robicie to i nie wychodzi to polecam korzystanie z chataGPT albo Claude.ai Chatboty naprawdę dobrze sobie radzą i opisują działanie wszystkich komend jakie potrzebujemy. Oczywiście ja też wam we wszystkim pomogę więc śmiało pytajcie. Tak naprawdę korzystanie z terminala nie jest takie straszne na jakie wygląda ;)
  
 Musimy być zalogowani jako "root". Nasz wiersz poleceń powinien wyglądać mniej więcej tak "root@srv405201:~#"
+
 Jeżeli nie jesteśmy zalogowani jako root to po wpisaniu "sudo su" będziemy musieli wpisać nasze hasło roota.
+
 Po wklejeniu/wpisaniu każdego polecenia klikamy ENTER. Polecenia w terminal wklejamy/wpisujemy zawsze w jednej linijce. Jeżeli edytujemy jakiś plik w coś w niego wklejamy to można w całości kilka linijek na raz.
 
 
