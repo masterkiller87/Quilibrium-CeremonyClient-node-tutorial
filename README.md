@@ -25,7 +25,7 @@ Musimy być zalogowani jako "root". Nasz wiersz poleceń powinien wyglądać mni
 
 Jeżeli nie jesteśmy zalogowani jako root to po wpisaniu "sudo su" będziemy musieli wpisać nasze hasło roota.
 
-Po wklejeniu/wpisaniu każdego polecenia klikamy ENTER. Polecenia w terminal wklejamy/wpisujemy zawsze w jednej linijce. Jeżeli edytujemy jakiś plik w coś w niego wklejamy to można w całości kilka linijek na raz.
+Po wklejeniu/wpisaniu każdego polecenia klikamy ENTER. Polecenia w terminal wklejamy/wpisujemy zawsze w jednej linijce. Jeżeli edytujemy jakiś plik i coś w niego wklejamy to można w całości kilka linijek na raz.
 
 
 Zalogowanie jako root
