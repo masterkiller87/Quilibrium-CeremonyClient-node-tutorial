@@ -225,7 +225,7 @@ Teraz musimy utworzyć węzeł binarny i naszego noda jako usługę systemową. 
 	
 Będąc w tym katalogu uruchamiamy polecenie
 
-	GOEXPERIMENT=arenas go install  ./...
+	GOEXPERIMENT=arenas go install ./...
 	
 Polecenie to powinno nam utworzyć katalog /root/go/bin/ Sprawdzamy to poleceniem i powinien w konsoli wyświetlić się napis "node"
 
