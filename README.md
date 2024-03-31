@@ -296,7 +296,9 @@ Sprawdzenie info o nodzie, salda itd
 
     cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -node-info
 
+Sprawdzenie salda
 
+	cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -balance
 
 
 
