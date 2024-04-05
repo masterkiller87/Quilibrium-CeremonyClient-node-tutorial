@@ -253,9 +253,6 @@ Otworzy nam się pusty plik w edytorze VIM. Z wcześniejszych kroków już wieci
     WantedBy=multi-user.target
 
 
-    [Install]
-    WantedBy=multi-user.target
-
 W tym skrypcie jest ustawione maksymalne wykorzystanie rdzeni procesora na 90%. Ustawienie dotyczy 8 rdzeni. Jeżeli będziecie mieć serwer z większą ilością rdzeni to trzeba wpisać inną wartość w polu CPUQuota=. Liczy się to tak: 8 rdzeni * 90% = 720%, 12 rdzeni * 90% = 1080% itd.
 
 Teraz tym poleceniem otwieramy okno logów naszego noda. Na razie nic tam się nie będzie pojawiało bo nasz węzeł jeszcze nie pracuje.
