@@ -297,7 +297,7 @@ Sprawdzenie salda
 
 	cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -balance
 
-
+-------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Aktualizacja noda:
