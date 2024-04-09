@@ -300,6 +300,57 @@ Sprawdzenie salda
 
 
 
+Aktualizacja noda:
+
+Otwórz Vim, wpisując w terminalu:
+
+	vim upgrade_script.sh
+
+Naciśnij klawisz i, aby przejść do trybu wstawiania (insert mode).
+
+Wklej zestaw poleceń do edytora Vim:
+
+	#!/bin/bash
+	
+	# Zatrzymaj usługę ceremonyclient
+	service ceremonyclient stop
+	
+	# Przejdź do katalogu ceremonyclient
+	cd ~/ceremonyclient
+	
+	# Pobierz zmiany z oryginalnego repozytorium git
+	git fetch origin
+	git merge origin
+	
+	# Przejdź do katalogu node
+	cd ~/ceremonyclient/node
+	
+	# Wyczyść i zainstaluj go
+	GOEXPERIMENT=arenas go clean -v -n -a ./...
+	rm /root/go/bin/node
+	ls /root/go/bin
+	GOEXPERIMENT=arenas go install ./...
+	ls /root/go/bin
+	
+	# Uruchom usługę ceremonyclient
+	service ceremonyclient start
+
+
+Po wklejeniu zawartości, naciśnij klawisz Esc, aby wyjść z trybu wstawiania.
+Następnie wpisz :wq, aby zapisać zmiany i wyjść z Vim.
+Nadaj plikowi odpowiednie uprawnienia do wykonania:
+
+
+	chmod +x upgrade_script.sh
+
+Teraz możesz uruchomić ten skrypt, wpisując w terminalu:
+
+
+	./ceremony_script.sh
+
+Skrypt zostanie wykonany krok po kroku, uruchamiając każde polecenie zawarte w pliku. Upewnij się, że znajdujesz się w odpowiednim katalogu przed uruchomieniem skryptu, aby uniknąć błędów.
+
+
 
 
 
