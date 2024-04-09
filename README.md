@@ -328,7 +328,7 @@ Teraz tworzymy nowy czysty plik i otwieramy go w edytorze Vim, wpisując w termi
 
 Naciśnij klawisz i, aby przejść do trybu wstawiania (insert mode).
 
-Wklej zestaw poleceń do edytora Vim:
+Wklej zestaw poleceń do edytora Vim, wklejamy w całości tak jak jest tutaj:
 
 	#!/bin/bash
 	
