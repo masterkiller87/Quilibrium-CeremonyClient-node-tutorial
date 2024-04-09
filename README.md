@@ -302,7 +302,27 @@ Sprawdzenie salda
 
 Aktualizacja noda:
 
-Otwórz Vim, wpisując w terminalu:
+Aktualizację można przeprowadzić ręcznie, jest trochę poleceń do przeklikania ale można to też zrobić za pomocą skryptu.
+Ręczna aktualizacja jest opisana tutaj:
+
+	https://demipoet.github.io/#xiv--upgrading-your-q-node-to-latest-release
+
+Ja polecam sobie napisać skrypt, który później można odpalać jednym poleceniem i node będzie nam się aktualizował.
+Najpierw tworzymy sobie jakiś katalog, w którym będzie nasz plik skryptu. Katalog skryptu najlepiej utworzyć w katalogu z nodem.
+
+Przenosimy się do katalogu z nodem
+
+	cd ~/ceremonyclient/node
+
+ Poleceniem mkdir tworzymy nowy katalog o jakiejś nazwie
+
+ 	mkdir upgradescript
+
+Teraz przenosimy się do katalogu gdzie będzie nasz skrypt
+
+	cd upgradescript
+
+Teraz tworzymy nowy czysty plik i otwieramy go w edytorze Vim, wpisując w terminalu
 
 	vim upgrade_script.sh
 
@@ -337,16 +357,14 @@ Wklej zestaw poleceń do edytora Vim:
 
 
 Po wklejeniu zawartości, naciśnij klawisz Esc, aby wyjść z trybu wstawiania.
-Następnie wpisz :wq, aby zapisać zmiany i wyjść z Vim.
+Następnie wpisz SHIFT + : potem wq, aby zapisać zmiany i wyjść z Vim.
 Nadaj plikowi odpowiednie uprawnienia do wykonania:
-
 
 	chmod +x upgrade_script.sh
 
 Teraz możesz uruchomić ten skrypt, wpisując w terminalu:
 
-
-	./ceremony_script.sh
+	./upgrade_script.sh
 
 Skrypt zostanie wykonany krok po kroku, uruchamiając każde polecenie zawarte w pliku. Upewnij się, że znajdujesz się w odpowiednim katalogu przed uruchomieniem skryptu, aby uniknąć błędów.
 
