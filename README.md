@@ -289,6 +289,9 @@ Sprawdzenie peer ID
 
     cd ~/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -peer-id
 
+	cd ~/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... --db-console
+    
+
 Sprawdzenie info o nodzie, salda itd
 
     cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -node-info
