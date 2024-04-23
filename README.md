@@ -172,7 +172,7 @@ Odpalamy nasz plik edytorem VIM
 
 	sudo vim .config/config.yml
 	
-Klikamy 'i', zjeżdziamy na sam konieć i tam powinna znajdować się linijka  listenGrpcMultiaddr: “”
+Klikamy 'i', zjeżdziamy na sam koniec i tam powinna znajdować się linijka  listenGrpcMultiaddr: “”
 Zmieniamy na
 
 	listenGrpcMultiaddr: /ip4/127.0.0.1/tcp/8337
