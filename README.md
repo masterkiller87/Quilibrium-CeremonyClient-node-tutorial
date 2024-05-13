@@ -371,6 +371,9 @@ Teraz możesz uruchomić ten skrypt, wpisując w terminalu:
 
 Skrypt zostanie wykonany krok po kroku, uruchamiając każde polecenie zawarte w pliku. Upewnij się, że znajdujesz się w odpowiednim katalogu przed uruchomieniem skryptu, aby uniknąć błędów.
 
+Przy kolejnych aktualizacjach i świeżym logowaniu do terminalu można przejść poleceniem 'cd' do katalogu skryptu ale wystarczy wkleić jedno polecenie, które od razu nas przeniesie do odpowiedniego katalogu i uruchomi skrypt aktualizacji. 
+
+	cd ~/ceremonyclient/node/upgradescript/ && ./upgrade_script.sh
 
 
 
