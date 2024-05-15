@@ -53,7 +53,7 @@ Instalujemy GO - Golang
 
 	wget https://go.dev/dl/go1.20.14.linux-amd64.tar.gz
 	
-Tym poleceniem wypakowywujemy nasz plil
+Tym poleceniem wypakowywujemy nasz plik
 
 	sudo tar -xvf go1.20.14.linux-amd64.tar.gz
 	
