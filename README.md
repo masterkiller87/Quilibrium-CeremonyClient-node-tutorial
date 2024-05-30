@@ -313,6 +313,12 @@ Jednak wczoraj (29.05.2024) pojawił się problem i github zablokował repo Quil
 
 	git remote set-url origin https://source.quilibrium.com/quilibrium/ceremonyclient.git
 
+ Teraz możemy sprawdzić czy nasze źródło się zaktualizowało
+
+ 	git remote -v
+
+Powinniśmy zobaczyć w konsoli linki do nowego repo i zamiast githuba będzie ta strona source.quilibrium.com
+
  Po zmianie źródła repozytorium w konsoli wpisujemy 
 
  	git pull
