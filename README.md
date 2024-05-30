@@ -312,6 +312,7 @@ Poprzednia aktualizacja już nie działa. Jest nowy skrypt od użytkownika 0xOzg
 Jednak wczoraj (29.05.2024) pojawił się problem i github zablokował repo Quili. Powyższa komenda może nie zadziałać dopóki nie odblokują githuba. Można się przełączyć na alternatywne repo. Wklejamy odpowiednią komendę w konsolę. Musimy być w katalogu noda żeby ta komenda zadziałała (ceremonyclient/node) 
 
 	cd ~/ceremonyclient/node
+ 
 
 	git remote set-url origin https://source.quilibrium.com/quilibrium/ceremonyclient.git
 
