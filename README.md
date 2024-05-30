@@ -361,7 +361,15 @@ Na początku pliku trzeba dodać następujące linie
 
 
 
+Przy okazji aktualizacji i restartu serwera warto też wykonać aktualizacje systemu. Jeżeli zaktualizowaliśmy naszego noda komendą git pull i wszystko jest ok to przed rebootem możemy wpisać
 
+	apt-get update
+
+ Potem
+
+ 	apt-get upgrade
+
+I teraz dopiero reboot. Nasz system na serwerze i wszystkie pliki zostaną zaktualizowane do najnowszych wersji.
 
 
 
