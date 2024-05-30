@@ -305,77 +305,53 @@ Sprawdzenie salda
 
 Aktualizacja noda:
 
-Aktualizację można przeprowadzić ręcznie, jest trochę poleceń do przeklikania ale można to też zrobić za pomocą skryptu.
-Ręczna aktualizacja jest opisana tutaj:
+Poprzednia aktualizacja już nie działa. Jest nowy skrypt od użytkownika 0xOzgur. Wystarczy wkleić w konsolę ten link i aktualizacja zrobi się automatycznie. Ten skrypt będzie działał jak korzystamy z repozytorium na githubie.
 
-	https://demipoet.github.io/#xiv--upgrading-your-q-node-to-latest-release
+	wget -O - https://raw.githubusercontent.com/0xOzgur/QuilibriumTools/main/update.sh | bash
 
-Ja polecam sobie napisać skrypt, który później można odpalać jednym poleceniem i node będzie nam się aktualizował.
-Najpierw tworzymy sobie jakiś katalog, w którym będzie nasz plik skryptu. Katalog skryptu najlepiej utworzyć w katalogu z nodem.
+Jednak wczoraj (29.05.2024) pojawił się problem i github zablokował repo Quili. Powyższa komenda może nie zadziałać dopóki nie odblokują githuba. Można się przełączyć na alternatywne repo. Wklejamy odpowiednią komendę w konsolę. Musimy być w katalogu noda żeby ta komenda zadziałała (cd ~/ceremonyclient/node) 
 
-Przenosimy się do katalogu z nodem
+	git remote set-url origin https://source.quilibrium.com/quilibrium/ceremonyclient.git
 
-	cd ~/ceremonyclient/node
+ Po zmianie źródła repozytorium w konsoli wpisujemy 
 
- Poleceniem mkdir tworzymy nowy katalog o jakiejś nazwie
+ 	git pull
 
- 	mkdir upgradescript
+  Po to żeby zaktualizować pliki do najnowszych wersji. Po udanej aktualizacji robimy reboot i ponownie uruchamiamy noda.
 
-Teraz przenosimy się do katalogu gdzie będzie nasz skrypt
+  Jeżeli wyskakują jakieś błędy to najprawdopodobniej oznacza, że nasz serwer nie widzi nowego repozytorium i trzeba zmienić serwer DNS. Można to sprawdzić komendą
 
-	cd upgradescript
+   	nslookup source.quilibrium.com
 
-Teraz tworzymy nowy czysty plik i otwieramy go w edytorze Vim, wpisując w terminalu
+Jeżeli widzimy coś w tym stylu to znaczy, że jest dobrze
 
-	vim upgrade_script.sh
-
-Naciśnij klawisz i, aby przejść do trybu wstawiania (insert mode).
-
-Wklej zestaw poleceń do edytora Vim, wklejamy w całości tak jak jest tutaj:
-
-	#!/bin/bash
-	
-	# Zatrzymaj usługę ceremonyclient
-	service ceremonyclient stop
-	
-	# Przejdź do katalogu ceremonyclient
-	cd ~/ceremonyclient
-	
-	# Pobierz zmiany z oryginalnego repozytorium git
-	git fetch origin
-	git merge origin
-	
-	# Przejdź do katalogu node
-	cd ~/ceremonyclient/node
-	
-	# Wyczyść i zainstaluj go
-	GOEXPERIMENT=arenas go clean -v -n -a ./...
-	rm /root/go/bin/node
-	ls /root/go/bin
-	GOEXPERIMENT=arenas go install ./...
-	ls /root/go/bin
-	
-	# Uruchom usługę ceremonyclient
-	service ceremonyclient start
+	Non-authoritative answer:
+	Name:	source.quilibrium.com
+	Address: 172.67.73.191
+	Name:	source.quilibrium.com
+	Address: 104.26.7.120
+	Name:	source.quilibrium.com
+	Address: 104.26.6.120
+	Name:	source.quilibrium.com
+	Address: 2606:4700:20::681a:778
+	Name:	source.quilibrium.com
+	Address: 2606:4700:20::ac43:49bf
+	Name:	source.quilibrium.com
+	Address: 2606:4700:20::681a:678
 
 
-Po wklejeniu zawartości, naciśnij klawisz Esc, aby wyjść z trybu wstawiania.
-Następnie wpisz SHIFT + : potem wq, aby zapisać zmiany i wyjść z Vim.
-Nadaj plikowi odpowiednie uprawnienia do wykonania:
+ Jeżeli są jakieś błędy to musimy edytować plik resolv.conf
 
-	chmod +x upgrade_script.sh
+ 	sudo vim /etc/resolv.conf
 
-Teraz możesz uruchomić ten skrypt, wpisując w terminalu:
+Na początku pliku trzeba dodać następujące linie
 
-	./upgrade_script.sh
+	nameserver 8.8.8.8  # Google DNS
+	nameserver 8.8.4.4  # Google DNS
 
-Skrypt zostanie wykonany krok po kroku, uruchamiając każde polecenie zawarte w pliku. Upewnij się, że znajdujesz się w odpowiednim katalogu przed uruchomieniem skryptu, aby uniknąć błędów.
+ Zapisujemy i ponownie sprawdzamy czy nasz serwer widzi nowy adres repo
 
-Przy kolejnych aktualizacjach i świeżym logowaniu do terminalu można przejść poleceniem 'cd' do katalogu skryptu ale wystarczy wkleić jedno polecenie, które od razu nas przeniesie do odpowiedniego katalogu i uruchomi skrypt aktualizacji. 
-
-	cd ~/ceremonyclient/node/upgradescript/ && ./upgrade_script.sh
-
-
+ 	nslookup source.quilibrium.com
 
 
 
