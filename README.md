@@ -289,17 +289,17 @@ Sprawdzenie peer ID
 
     	cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -peer-id
     
-Sprawdzenie info o nodzie, salda itd
+Sprawdzenie info o nodzie
 
     	cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -node-info
 
 Sprawdzenie salda
 
-	cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -balance
+		cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -balance
 
 Uruchamia konsolę węzła
 
-	cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -db-console
+		cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -db-console
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
