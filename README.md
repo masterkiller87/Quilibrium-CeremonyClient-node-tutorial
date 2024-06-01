@@ -271,34 +271,35 @@ Polecenia do obsługi noda:
 
 Start noda
 
-    service ceremonyclient start
+    	service ceremonyclient start
 
 Zatrzymanie noda
 
-    service ceremonyclient stop
+    	service ceremonyclient stop
 
 Status noda (CTRL+C żeby wyjść)
 
-    service ceremonyclient status
+    	service ceremonyclient status
 
 Okno logów (CTRL+C żeby wyjść)
 
-    sudo journalctl -u ceremonyclient.service -f --no-hostname -o cat
+    	sudo journalctl -u ceremonyclient.service -f --no-hostname -o cat
 
 Sprawdzenie peer ID
 
-    cd ~/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -peer-id
-
-	cd ~/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... --db-console
+    	cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -peer-id
     
-
 Sprawdzenie info o nodzie, salda itd
 
-    cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -node-info
+    	cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -node-info
 
 Sprawdzenie salda
 
-	cd /root/ceremonyclient/node && GOEXPERIMENT=arenas go run ./... -balance
+	cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -balance
+
+Uruchamia konsolę węzła
+
+	cd ~/ceremonyclient/node && ./node-1.4.18-linux-amd64 -db-console
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
