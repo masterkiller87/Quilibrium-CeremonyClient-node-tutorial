@@ -279,7 +279,7 @@ Zatrzymanie noda
 
 Restart noda
 
- service ceremonyclient restart
+	service ceremonyclient restart
 
 Status noda (CTRL+C żeby wyjść)
 
