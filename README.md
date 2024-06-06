@@ -277,6 +277,10 @@ Zatrzymanie noda
 
     service ceremonyclient stop
 
+Restart noda
+
+ service ceremonyclient restart
+
 Status noda (CTRL+C żeby wyjść)
 
     service ceremonyclient status
